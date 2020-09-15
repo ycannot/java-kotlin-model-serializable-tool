@@ -1,1 +1,1 @@
-python swagger_serializable_updater.py
+py -3 swagger_serializable_updater.py || python swagger_serializable_updater.py
