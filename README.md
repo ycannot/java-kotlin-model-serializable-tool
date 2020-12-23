@@ -11,7 +11,7 @@
 
 # Steps
 0. Download and setup python 3.x (https://www.python.org/downloads/)
-1. Run the tool and give the folder path of your model files (For example: C:\{your swagger path}\src\main\swagger\client).
+1. Run the tool (.bat, .command) and give the folder path of your model files (For example: C:\{your swagger path}\src\main\swagger\client).
 2. (optional) Select a subdirectory to implement serializable.
 3. Files in subdirectory will be updated and log file will be created in the same subdirectory.
 
