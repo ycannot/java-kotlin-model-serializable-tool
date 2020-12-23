@@ -72,8 +72,12 @@ for file in glob.glob("*.java"):
             unchanged += "\n" + file
         else:
             if temp.count("import java.io.Serializable") == 0:
-                import_index = temp.find("import")
-                temp = temp[0:import_index] + "import java.io.Serializable;\n" + temp[import_index::]
+                if temp.count("import") > 0:
+                    import_index = temp.find("import")
+                    temp = temp[0:import_index] + "import java.io.Serializable;\n" + temp[import_index::]
+                else:
+                    import_index = temp.find("public class")
+                    temp = temp[0:import_index] + "import java.io.Serializable;\n\n" + temp[import_index::]
                 start_index = temp.find("public class") + 12
                 end_index = temp.find("{")
 
@@ -105,8 +109,12 @@ for file in glob.glob("*.kt"):
             unchanged += "\n" + file
         else:
             if temp.count("import java.io.Serializable") == 0:
-                import_index = temp.find("data class")
-                temp = temp[0:import_index] + "import java.io.Serializable;\n\n" + temp[import_index::]
+                if temp.count("import") > 0:
+                    import_index = temp.find("import")
+                    temp = temp[0:import_index] + "import java.io.Serializable;\n" + temp[import_index::]
+                else:
+                    import_index = temp.find("data class")
+                    temp = temp[0:import_index] + "import java.io.Serializable;\n\n" + temp[import_index::]
                 start_index = temp.find("data class") + 10
                 end_index = temp.find("{")
             if temp[start_index:end_index].count(")") > 0:
